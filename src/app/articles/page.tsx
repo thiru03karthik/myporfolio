@@ -83,3 +83,43 @@ export default async function ArticlesIndex() {
     </SimpleLayout>
   )
 }
+
+
+// import { Metadata } from 'next'
+// import { notFound } from 'next/navigation'
+// import { getAllArticles } from '@/lib/articles'
+
+// export const dynamic = 'force-static'; // Ensures static export
+
+// export async function generateStaticParams() {
+//   const articles = getAllArticles();
+//   return articles.map((article) => ({ slug: article.slug }));
+// }
+
+// // ✅ FIX: Added type definition for `params`
+// export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+//   const articles = getAllArticles();
+//   const article = articles.find((article) => article.slug === params.slug);
+
+//   if (!article) return notFound();
+
+//   return {
+//     title: article.title,
+//     description: article.description,
+//   };
+// }
+
+// // ✅ FIX: Added type definition for `params` in `ArticlePage`
+// export default function ArticlePage({ params }: { params: { slug: string } }) {
+//   const articles = getAllArticles();
+//   const article = articles.find((article) => article.slug === params.slug);
+
+//   if (!article) return notFound();
+
+//   return (
+//     <main>
+//       <h1>{article.title}</h1>
+//       <p>{article.description}</p>
+//     </main>
+//   );
+// }
