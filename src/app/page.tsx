@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Best Digital Marketing Consultant in Coimbatore | Karthikeyan',
   description: 'Hi, I’m Karthikeyan – a Digital Marketing Expert and Full Stack Developer committed to creating impactful digital strategies.',
   keywords: ['Digital Marketing', 'SEO', 'Web Development', 'Karthikeyan', 'Full Stack Developer'],
+  
   openGraph: {
     title: 'Digital Marketing Expert | Karthikeyan',
     description: 'Hi, I’m Karthikeyan – a Digital Marketing Expert and Full Stack Developer committed to creating impactful digital strategies.',

@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="CW_w-xwJSaTjhjkagMfQRfI-dntye-s95AEztvwZ51s" />
         {/* Google Analytics Script */}
         <Script
           strategy="afterInteractive"
