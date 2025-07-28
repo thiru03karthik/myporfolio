@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
-import Script from 'next/script'
+
 
 export const metadata: Metadata = {
   title: 'Best Digital Marketing Consultant in Coimbatore | Karthikeyan',
@@ -25,34 +25,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 }
-
-const GA_MEASUREMENT_ID = 'G-4Z5LKHW52J' 
-
-export function GoogleAnalytics() {
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
-    </>
-  )
-}
-
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
