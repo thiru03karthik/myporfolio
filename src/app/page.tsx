@@ -214,35 +214,29 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
+      company: 'Transform Tech - RVS',
+      title: 'Digital Marketing Executive',
       logo: logoPlanetaria,
-      start: '2019',
+      start: '2023',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
+      company: '3MONKS',
+      title: 'Digital Marketing Executive',
       logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      start: '2022',
+      end: '2023',
     },
+    
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
+      company: 'Orb25',
+      title: 'SEO Analyst - Intern',
       logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      start: '2022',
+      end: '2021',
     },
   ]
 
@@ -257,7 +251,7 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href="KARTHIK Digital Marketer.pdf" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
