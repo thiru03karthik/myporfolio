@@ -235,8 +235,8 @@ function Resume() {
       company: 'Orb25',
       title: 'SEO Analyst - Intern',
       logo: logoStarbucks,
-      start: '2022',
-      end: '2021',
+      start: '2021',
+      end: '2022',
     },
   ]
 
