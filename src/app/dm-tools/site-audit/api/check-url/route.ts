@@ -1,62 +1,54 @@
-// src/app/api/check-url/route.ts
+// src/app/dm-tools/site-audit/api/check-url/route.ts
 import { NextResponse } from 'next/server';
-import axios from 'axios';  // Axios to fetch the website content
-import { parse } from 'node-html-parser';  // Parse the HTML content for SEO checks
+import axios from 'axios';
+import { checkMetaTags, checkRobotsTxt, checkAltText, checkCanonicalTag } from 'lib/seo/seoUtils';  // Correct relative path to seoUtils
+import { getPerformanceMetrics } from 'lib/puppeteer';  // Correct relative path to puppeteer.js
 
 export async function POST(request: Request) {
   const { url } = await request.json();  // Extract the URL from the POST request body
 
   try {
+    console.log('Fetching URL:', url);  // Log the URL we're trying to fetch
+
     // Fetch the website content using axios
     const response = await axios.get(url);
-    const html = response.data;  // Get the raw HTML content from the response
+    const html = response.data;  // Get the raw HTML content
 
     // Perform SEO checks
-    const checks = await performSeoChecks(html, url);
+    const seoResults = await performSeoChecks(html, url);
+    const performanceResults = await getPerformanceMetrics(url);  // Performance check using Puppeteer
 
-    // Return the result as JSON to the frontend
-    return NextResponse.json({ success: true, checks });
-  } catch (error) {
-    // If there is an error, return a failure response
-    console.error('Error fetching URL:', error);
-    return NextResponse.json({ success: false, message: 'Failed to fetch URL' }, { status: 500 });
+    return NextResponse.json({ success: true, seoResults, performanceResults });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Error:', error.message);
+      return NextResponse.json(
+        { success: false, message: 'Failed to fetch the website', error: error.message },
+        { status: 500 }
+      );
+    }
+    console.error('Unknown error:', error);
+    return NextResponse.json(
+      { success: false, message: 'Unknown error occurred', error: 'Unknown error' },
+      { status: 500 }
+    );
   }
 }
 
-// Function to perform SEO checks (e.g., HTTPS, robots.txt, title tag, etc.)
+// Perform SEO checks (meta tags, canonical, robots.txt, etc.)
 async function performSeoChecks(html: string, url: string) {
   const result: any = {};
 
-  // Example of Technical SEO check: Check for HTTPS in the URL
-  result.technicalSeo = await checkTechnicalSeo(url);
+  // Meta tags and SEO content
+  const metaTags = await checkMetaTags(html);
+  const robots = await checkRobotsTxt(url);
+  const altTextResults = await checkAltText(html);
+  const canonical = await checkCanonicalTag(html);
 
-  // Example of On-Page SEO check: Extract the title tag from HTML
-  result.onPageSeo = await checkOnPageSeo(html);
-
-  // Placeholder: You can replace with actual performance checks (e.g., Google PageSpeed Insights)
-  result.performance = await checkPerformance(url);
-
-  // Placeholder: Check if Google Analytics or other SEO tools are present
-  result.analytics = await checkAnalytics(url);
+  result.metaTags = metaTags;
+  result.robots = robots;
+  result.altTextResults = altTextResults;
+  result.canonical = canonical;
 
   return result;
-}
-
-async function checkTechnicalSeo(url: string) {
-  const isHttps = url.startsWith('https://');
-  return { https: isHttps, robotsTxt: 'https://example.com/robots.txt' };  // Example robots.txt link
-}
-
-async function checkOnPageSeo(html: string) {
-  const root = parse(html);  // Parse the HTML
-  const title = root.querySelector('title')?.textContent || 'No title found';
-  return { title };
-}
-
-async function checkPerformance(url: string) {
-  return { score: 85 };  // Dummy performance score
-}
-
-async function checkAnalytics(url: string) {
-  return { googleAnalytics: 'UA-XXXXX-Y' };  // Dummy Google Analytics ID
 }
