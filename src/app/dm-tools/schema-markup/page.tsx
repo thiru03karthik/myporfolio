@@ -154,7 +154,7 @@ const SchemaMarkupGenerator = () => {
         <div className="mt-6 space-y-4">
           <h2 className="text-xl font-semibold">Generated Schema JSON:</h2>
           <textarea
-            className="w-full p-4 bg-gray-100 rounded-md overflow-x-auto h-48"
+            className="w-full p-4 bg-gray-100 dark:bg-[#000] rounded-md overflow-x-auto h-48"
             value={jsonSchema}
             onChange={(e) => setJsonSchema(e.target.value)} // Allow modification of JSON
           ></textarea>
