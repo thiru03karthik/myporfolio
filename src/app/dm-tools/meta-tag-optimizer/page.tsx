@@ -6,7 +6,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { Card } from '@/components/Card'
 import MetaInputForm from './meta-components/MetaInputForm'
 import SERPPreview from './meta-components/SERPPreview'
-import Suggestions from './meta-components/Suggestions'
 import ScoreCard from './meta-components/ScoreCard'
 import { checkSEO } from './seo-utils/seoUtils'
 import { saveToLocal } from './seo-utils/storageUtils'
@@ -54,11 +53,7 @@ export default function MetaTagOptimizerPage() {
             keyword={keyword}
             setKeyword={setKeyword}
           />
-        </Card>
-        <Card>
-          <SERPPreview title={title} description={description} />
-        </Card>
-        
+        </Card>  
       </div>
     </SimpleLayout>
   )
