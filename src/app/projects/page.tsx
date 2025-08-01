@@ -27,11 +27,9 @@ export const metadata: Metadata = {
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoAvcc from '@/images/logos/avcc.svg'
+import logoRvsgroup from '@/images/logos/rvsgroup.svg'
+import logoRvscas from '@/images/logos/rvscas.svg'
 
 const projects = [
   {
@@ -39,35 +37,42 @@ const projects = [
     description:
       'Creating technology to empower civilians to explore space on their own terms.',
     link: { href: 'https://rvscas.ac.in', label: 'rvscas.ac.in' },
-    logo: logoPlanetaria,
+    logo: logoRvscas,
   },
   {
     name: 'RVS CAS MBA',
     description:
       'High performance web animation library, hand-written in optimized WASM.',
     link: { href: 'https://mba.rvscas.ac.in', label: 'mba.rvscas.ac.in' },
-    logo: logoAnimaginary,
+    logo: logoRvscas,
   },
   {
     name: 'Ayurveda College and Hospital',
     description:
       'Real-time video streaming library, optimized for interstellar transmission.',
     link: { href: 'https://avcc.ac.in', label: 'avcc.ac.in' },
-    logo: logoHelioStream,
+    logo: logoAvcc,
   },
   {
     name: ' RVS Nursing',
     description:
       'The operating system that powers our Planetaria space shuttles.',
     link: { href: 'https://rvscons.ac.in/', label: 'rvscons.ac.in' },
-    logo: logoCosmos,
+    logo: logoRvsgroup,
   },
   {
     name: 'RVS CPT',
     description:
       'The schematics for the first rocket I designed that successfully made it to orbit.',
     link: { href: 'https://rvscpt.ac.in/', label: 'rvscpt.ac.in' },
-    logo: logoOpenShuttle,
+    logo: logoRvsgroup,
+  },
+   {
+    name: 'RVS CPT',
+    description:
+      'The schematics for the first rocket I designed that successfully made it to orbit.',
+    link: { href: 'https://rvscops.ac.in/', label: 'rvscops.ac.in' },
+    logo: logoRvsgroup,
   },
 ]
 
@@ -82,11 +87,6 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-// export const metadata: Metadata = {
-//   title: 'Projects',
-//   description: 'Things I’ve made trying to put my dent in the universe.',
-// }
-
 export default function Projects() {
   return (
     <SimpleLayout
@@ -99,7 +99,7 @@ export default function Projects() {
       >
         {projects.map((project) => (
           <Card as="li" key={project.name}>
-            <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+            <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:text-zinc-200 dark:ring-0">
               <Image
                 src={project.logo}
                 alt=""
