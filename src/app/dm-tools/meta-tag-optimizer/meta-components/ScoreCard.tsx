@@ -9,19 +9,16 @@ export default function ScoreCard({
   title: string
   description: string
 }) {
-  const emoji =
-    score >= 90 ? '🔥' : score >= 70 ? '👍' : score >= 50 ? '⚠️' : '❌'
-
   const snippet = generateHTMLSnippet(title, description)
+  const emoji = score >= 90 ? '🔥' : score >= 70 ? '👍' : score >= 50 ? '⚠️' : '❌'
 
   return (
-    <div className="mt-6 bg-white border rounded-lg shadow-sm p-4 space-y-3">
-      <h3 className="text-lg font-semibold">Optimization Score</h3>
-
-      <div className="flex items-center space-x-2">
-        <div className="w-full bg-gray-200 rounded-full h-4">
+    <div className="mt-6">
+      <h2 className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 mb-2">Optimization Score</h2>
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-full bg-zinc-200 dark:bg-zinc-700 h-3 rounded-full overflow-hidden">
           <div
-            className={`h-4 rounded-full ${
+            className={`h-full rounded-full ${
               score >= 90
                 ? 'bg-green-500'
                 : score >= 70
@@ -31,20 +28,19 @@ export default function ScoreCard({
                 : 'bg-red-500'
             }`}
             style={{ width: `${score}%` }}
-          ></div>
+          />
         </div>
-        <span className="font-bold">{score}/100 {emoji}</span>
+        <span className="text-sm font-bold text-zinc-800 dark:text-zinc-100">
+          {score}/100 {emoji}
+        </span>
       </div>
-
-      <div>
-        <h4 className="text-sm font-medium mt-2">Export as HTML</h4>
-        <textarea
-          className="w-full border rounded p-2 text-sm font-mono bg-gray-100"
-          value={snippet}
-          readOnly
-          rows={3}
-        />
-      </div>
+      <label className="text-xs text-zinc-500 dark:text-zinc-400">Export as HTML snippet</label>
+      <textarea
+        className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 px-3 py-2 text-xs font-mono text-zinc-700 dark:text-zinc-200"
+        rows={3}
+        readOnly
+        value={snippet}
+      />
     </div>
   )
 }

@@ -13,16 +13,16 @@ export default function Suggestions({
 
   return (
     <div className="mt-6 space-y-2">
-      <h2 className="text-lg font-semibold">Suggestions</h2>
+      <h2 className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Suggestions</h2>
       {tips.map((item, index) => (
         <div
           key={index}
-          className={`p-2 rounded ${
+          className={`rounded-md px-3 py-2 text-sm ${
             item.status === 'good'
-              ? 'bg-green-100 text-green-700'
+              ? 'bg-green-50 text-green-700 dark:bg-green-900/10 dark:text-green-300'
               : item.status === 'warn'
-              ? 'bg-yellow-100 text-yellow-700'
-              : 'bg-red-100 text-red-700'
+              ? 'bg-yellow-50 text-yellow-800 dark:bg-yellow-900/10 dark:text-yellow-300'
+              : 'bg-red-50 text-red-700 dark:bg-red-900/10 dark:text-red-300'
           }`}
         >
           {item.message}

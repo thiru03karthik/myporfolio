@@ -1,7 +1,6 @@
 export function checkSEO(title: string, description: string, keyword: string) {
   const tips: { message: string; status: 'good' | 'warn' | 'error' }[] = []
   let score = 100
-
   const keywordLower = keyword.toLowerCase()
 
   if (!title) {

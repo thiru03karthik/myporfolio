@@ -16,39 +16,46 @@ export default function MetaInputForm({
   setKeyword
 }: Props) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full">
       <div>
-        <label className="font-semibold">Page Title</label>
+        <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          Page Title
+        </label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full border p-2 rounded mt-1"
-          maxLength={100}
+          className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white"
           placeholder="Enter SEO title..."
+          maxLength={60}
         />
-        <p className="text-sm text-gray-500">{title.length}/60 characters</p>
+        <p className="mt-1 text-xs text-zinc-500">{title.length}/60 characters</p>
       </div>
 
       <div>
-        <label className="font-semibold">Meta Description</label>
+        <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          Meta Description
+        </label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full border p-2 rounded mt-1"
-          maxLength={260}
+          className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white"
+          rows={3}
           placeholder="Enter meta description..."
+          maxLength={160}
         />
-        <p className="text-sm text-gray-500">{description.length}/160 characters</p>
+        <p className="mt-1 text-xs text-zinc-500">{description.length}/160 characters</p>
       </div>
 
       <div>
-        <label className="font-semibold">Focus Keyword</label>
+        <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          Focus Keyword
+        </label>
         <input
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-          className="w-full border p-2 rounded mt-1"
+          className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white"
           placeholder="Enter focus keyword..."
         />
       </div>
