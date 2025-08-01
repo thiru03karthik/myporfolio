@@ -54,11 +54,11 @@ const tools = [
     logo: logoAnimaginary,
   },
   {
-    name: 'Meta-Tag Optimiser',
+    name: 'SEO Meta-Tag Optimiser',
     description:
-      'Track your website’s performance with detailed analytics to optimize your digital marketing strategy.',
+      'Instantly check your meta title, description, and keywords — get SEO tips and live Google preview.',
     link: { href: '/dm-tools/meta-tag-optimizer', label: 'Go to Tool' },
-    logo: logoHelioStream,
+    logo: logoHelioStream, src/images/logos/Schema-Markup.svg
   },
   {
     name: 'Content Optimization Tools',

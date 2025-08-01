@@ -3,13 +3,15 @@ import { generateHTMLSnippet } from '../seo-utils/seoUtils'
 export default function ScoreCard({
   score,
   title,
-  description
+  description,
+  keyword
 }: {
   score: number
   title: string
   description: string
+  keyword: string
 }) {
-  const snippet = generateHTMLSnippet(title, description)
+  const snippet = generateHTMLSnippet(title, description, keyword)
   const emoji = score >= 90 ? '🔥' : score >= 70 ? '👍' : score >= 50 ? '⚠️' : '❌'
 
   return (
@@ -37,7 +39,7 @@ export default function ScoreCard({
       <label className="text-xs text-zinc-500 dark:text-zinc-400">Export as HTML snippet</label>
       <textarea
         className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 px-3 py-2 text-xs font-mono text-zinc-700 dark:text-zinc-200"
-        rows={3}
+        rows={4}
         readOnly
         value={snippet}
       />

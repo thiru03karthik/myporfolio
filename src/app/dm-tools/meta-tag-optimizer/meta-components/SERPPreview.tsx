@@ -1,18 +1,12 @@
 import { useState } from 'react'
 
-export default function SERPPreview({
-  title,
-  description
-}: {
-  title: string
-  description: string
-}) {
+export default function SERPPreview({ title, description }: { title: string; description: string }) {
   const [url, setUrl] = useState('https://www.example.com')
 
   return (
     <div className="space-y-1 text-left">
       <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">
-        SERP Preview URL
+        SERP Preview
       </label>
       <input
         type="text"

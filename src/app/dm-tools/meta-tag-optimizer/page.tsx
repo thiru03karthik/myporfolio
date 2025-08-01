@@ -12,8 +12,8 @@ import { checkSEO } from './seo-utils/seoUtils'
 import { saveToLocal } from './seo-utils/storageUtils'
 
 export default function MetaTagOptimizerPage() {
-  const searchParams = useSearchParams()
   const router = useRouter()
+  const searchParams = useSearchParams()
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -31,7 +31,8 @@ export default function MetaTagOptimizerPage() {
   useEffect(() => {
     const q = new URLSearchParams({ title, description, keyword }).toString()
     router.replace(`/dm-tools/meta-tag-optimizer?${q}`, { scroll: false })
-    if (title && description && keyword) {
+
+    if (typeof window !== 'undefined' && title && description && keyword) {
       saveToLocal(title, description, keyword)
     }
   }, [title, description, keyword, router])
@@ -41,7 +42,7 @@ export default function MetaTagOptimizerPage() {
   return (
     <SimpleLayout
       title="SEO Meta Tag Optimizer"
-      intro="Improve your page’s search presence with real-time feedback. Enter your page title, description, and target keyword to preview how it looks on Google and get actionable suggestions."
+      intro="Get instant feedback on your SEO title, description, and keywords. Optimize how your page appears in search results."
     >
       <div className="space-y-8">
         <Card>
@@ -57,10 +58,7 @@ export default function MetaTagOptimizerPage() {
         <Card>
           <SERPPreview title={title} description={description} />
         </Card>
-        <Card>
-          <Suggestions title={title} description={description} keyword={keyword} />
-          <ScoreCard score={score} title={title} description={description} />
-        </Card>
+        
       </div>
     </SimpleLayout>
   )
