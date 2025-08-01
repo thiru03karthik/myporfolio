@@ -6,7 +6,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { Card } from '@/components/Card'
 import MetaInputForm from './meta-components/MetaInputForm'
 import SERPPreview from './meta-components/SERPPreview'
-import ScoreCard from './meta-components/ScoreCard'
 import { checkSEO } from './seo-utils/seoUtils'
 import { saveToLocal } from './seo-utils/storageUtils'
 
@@ -36,8 +35,6 @@ export default function MetaTagOptimizerPage() {
     }
   }, [title, description, keyword, router])
 
-  const { score } = checkSEO(title, description, keyword)
-
   return (
     <SimpleLayout
       title="SEO Meta Tag Optimizer"
@@ -53,7 +50,10 @@ export default function MetaTagOptimizerPage() {
             keyword={keyword}
             setKeyword={setKeyword}
           />
-        </Card>  
+        </Card>
+        <Card>
+          <SERPPreview title={title} description={description} />
+        </Card>
       </div>
     </SimpleLayout>
   )
