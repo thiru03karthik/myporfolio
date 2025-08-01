@@ -54,12 +54,6 @@ export default function MetaTagOptimizerPage() {
             setKeyword={setKeyword}
           />
         </Card>
-        <Card>
-          <SERPPreview title={title} description={description} />
-        </Card>
-        <Card>
-          <ScoreCard score={score} title={title} description={description} keyword={keyword} />
-        </Card>
       </div>
     </SimpleLayout>
   )
