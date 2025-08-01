@@ -61,9 +61,9 @@ const tools = [
     logo: logoMetatagopt,
   },
   {
-    name: 'Content Optimization Tools',
+    name: 'Plagiarism Checker',
     description:
-      'Enhance your website’s content with keyword analysis, readability scoring, and meta tag optimization.',
+      'Check for duplicate content across the web to ensure originality and avoid SEO penalties.',
     link: { href: '/dm-tools/content-optimization', label: 'Go to Tool' },
     logo: logoContentcheck,
   },
