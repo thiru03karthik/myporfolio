@@ -51,7 +51,7 @@ export default function MetaInputForm({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white"
-          maxLength={60}
+          maxLength={100}
           placeholder="Enter your SEO title..."
         />
         <p className="mt-1 text-xs text-zinc-500">{title.length}/60 characters</p>
@@ -66,7 +66,7 @@ export default function MetaInputForm({
           onChange={(e) => setDescription(e.target.value)}
           className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white"
           rows={3}
-          maxLength={160}
+          maxLength={500}
           placeholder="Enter your meta description..."
         />
         <p className="mt-1 text-xs text-zinc-500">{description.length}/160 characters</p>

@@ -32,10 +32,10 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 // import logoSeo from '@/images/logos/seo.svg'
 // import logoAnalytics from '@/images/logos/analytics.svg'
 // import logoContent from '@/images/logos/content.svg'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
+import logoMetatagopt from '@/images/logos/metatagopt.svg'
+import logoSiteaudittool from '@/images/logos/siteaudittool.svg'
+import logoSchemamarkupopt from '@/images/logos/schemamarkupopt.svg' 
+import logoContentcheck from '@/images/logos/contentcheck.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const tools = [
@@ -44,28 +44,28 @@ const tools = [
     description:
       'Optimize your website with a variety of SEO tools, including robots.txt generator, sitemap generator, and more.',
     link: { href: '/dm-tools/site-audit', label: 'Go to Tool' },
-    logo: logoCosmos,
+    logo: logoSiteaudittool,
   },
   {
     name: 'Schema Markup Generator',
     description:
       'Generate schema markup for your website to improve SEO and make your content stand out on search engines.',
     link: { href: '/dm-tools/schema-markup', label: 'Go to Tool' },
-    logo: logoAnimaginary,
+    logo: logoSchemamarkupopt,
   },
   {
     name: 'SEO Meta-Tag Optimiser',
     description:
       'Instantly check your meta title, description, and keywords — get SEO tips and live Google preview.',
     link: { href: '/dm-tools/meta-tag-optimizer', label: 'Go to Tool' },
-    logo: logoHelioStream, src/images/logos/Schema-Markup.svg
+    logo: logoMetatagopt,
   },
   {
     name: 'Content Optimization Tools',
     description:
       'Enhance your website’s content with keyword analysis, readability scoring, and meta tag optimization.',
     link: { href: '/dm-tools/content-optimization', label: 'Go to Tool' },
-    logo: logoOpenShuttle,
+    logo: logoContentcheck,
   },
 ]
 
