@@ -54,10 +54,10 @@ const tools = [
     logo: logoAnimaginary,
   },
   {
-    name: 'Meta-Tag Optimizer',
+    name: 'Analytics Dashboard',
     description:
       'Track your website’s performance with detailed analytics to optimize your digital marketing strategy.',
-    link: { href: '/dm-tools/meta-tag-optimizer', label: 'Go to Tool' },
+    link: { href: '/dm-tools/analytics', label: 'Go to Tool' },
     logo: logoHelioStream,
   },
   {
