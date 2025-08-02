@@ -1,3 +1,5 @@
+'use client'
+
 import { checkSEO, generateHTMLSnippet } from '../seo-utils/seoUtils'
 
 interface Props {
@@ -40,6 +42,30 @@ export default function MetaInputForm({
   }
 
   const emoji = score >= 90 ? '🔥' : score >= 70 ? '👍' : score >= 50 ? '⚠️' : '❌'
+
+  const handleAIGenerate = async () => {
+    if (!keyword.trim()) {
+      alert('Please enter a keyword first.')
+      return
+    }
+
+    try{
+      const res = await fetch('/api/ai/suggest-meta', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ keyword }) // ✅ keyword must exist
+})
+      
+
+      const data = await res.json()
+      console.log('AI Response:', data) 
+
+      if (data?.title) setTitle(data.title)
+      if (data?.description) setDescription(data.description)
+    } catch (err) {
+      console.error('AI generation failed', err)
+    }
+  }
 
   return (
     <div className="space-y-6 w-full">
@@ -89,6 +115,16 @@ export default function MetaInputForm({
         {renderTip('keyword')}
       </div>
 
+      {/* AI Generate Button */}
+      {/* <div>
+        <button
+          onClick={handleAIGenerate}
+          className="inline-block text-sm px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition"
+        >
+          🔮 Generate SEO Title & Description with AI
+        </button>
+      </div> */}
+
       {/* Score + HTML Snippet Section */}
       <div className="mt-6">
         <h2 className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 mb-2">Optimization Score</h2>
@@ -112,7 +148,7 @@ export default function MetaInputForm({
           </span>
         </div>
 
-        <label className="text-xs text-zinc-500 dark:text-zinc-400">Export as HTML snippet</label>
+        <label className="text-xs text-zinc-500 dark:text-zinc-400 mb-1 block">Export as HTML snippet</label>
         <textarea
           className="w-full mt-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white font-mono"
           rows={6}

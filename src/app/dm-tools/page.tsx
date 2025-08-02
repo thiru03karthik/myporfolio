@@ -36,7 +36,6 @@ import logoMetatagopt from '@/images/logos/metatagopt.svg'
 import logoSiteaudittool from '@/images/logos/siteaudittool.svg'
 import logoSchemamarkupopt from '@/images/logos/schemamarkupopt.svg' 
 import logoContentcheck from '@/images/logos/contentcheck.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const tools = [
    {

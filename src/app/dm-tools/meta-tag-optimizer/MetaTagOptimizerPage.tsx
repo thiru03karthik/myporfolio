@@ -5,8 +5,6 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { Card } from '@/components/Card'
 import MetaInputForm from './meta-components/MetaInputForm'
-import SERPPreview from './meta-components/SERPPreview'
-import ScoreCard from './meta-components/ScoreCard'
 import { checkSEO } from './seo-utils/seoUtils'
 import { saveToLocal } from './seo-utils/storageUtils'
 
@@ -18,13 +16,17 @@ export default function MetaTagOptimizerPage() {
   const [description, setDescription] = useState('')
   const [keyword, setKeyword] = useState('')
 
+  // ✅ Safe usage of useSearchParams inside useEffect
   useEffect(() => {
-    const t = searchParams.get('title') || ''
-    const d = searchParams.get('description') || ''
-    const k = searchParams.get('keyword') || ''
-    setTitle(decodeURIComponent(t))
-    setDescription(decodeURIComponent(d))
-    setKeyword(decodeURIComponent(k))
+    if (!searchParams) return
+
+    const t = searchParams.get('title')
+    const d = searchParams.get('description')
+    const k = searchParams.get('keyword')
+
+    setTitle(t ? decodeURIComponent(t) : '')
+    setDescription(d ? decodeURIComponent(d) : '')
+    setKeyword(k ? decodeURIComponent(k) : '')
   }, [searchParams])
 
   useEffect(() => {
@@ -35,8 +37,6 @@ export default function MetaTagOptimizerPage() {
       saveToLocal(title, description, keyword)
     }
   }, [title, description, keyword, router])
-
-  const { score } = checkSEO(title, description, keyword)
 
   return (
     <SimpleLayout
